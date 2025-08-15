@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>患者详情</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            margin: 0;
+            background-color: #f5f5f7;
+            color: #1d1d1f;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 40px;
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+        h1, h2 {
+            color: #1d1d1f;
+        }
+        .patient-header {
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e8e8e8;
+            margin-bottom: 20px;
+        }
+        #patient-name-header {
+            font-size: 28px;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+        }
+        .patient-header p {
+            font-size: 16px;
+            color: #6e6e73;
+            margin: 0;
+        }
+        .tab-nav {
+            border-bottom: 1px solid #d2d2d7;
+            margin-bottom: 20px;
+        }
+        .tab-nav button {
+            background: none;
+            border: none;
+            padding: 12px 20px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 500;
+            color: #6e6e73;
+            border-bottom: 2px solid transparent;
+            transition: color 0.2s, border-color 0.2s;
+        }
+        .tab-nav button.active {
+            color: #0071e3;
+            border-bottom-color: #0071e3;
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        .data-section {
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #e8e8e8;
+        }
+        .data-section:last-child {
+            border-bottom: none;
+        }
+        .data-section h3 {
+            font-size: 18px;
+            font-weight: 600;
+            color: #1d1d1f;
+            margin-bottom: 10px;
+        }
+        .data-section p {
+            margin: 4px 0;
+            font-size: 16px;
+            color: #515154;
+        }
+        #back-to-list {
+            background-color: #0071e3;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            text-decoration: none;
+            display: inline-block;
+            margin-bottom: 20px;
+            transition: background-color 0.2s;
+        }
+        #back-to-list:hover {
+            background-color: #0077ed;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a id="back-to-list" href="index.html">返回列表</a>
+        <div class="patient-header">
+            <h1 id="patient-name-header">患者姓名</h1>
+            <p><strong>病历号:</strong> <span id="patient-id"></span> | <strong>性别:</strong> <span id="patient-gender"></span> | <strong>年龄:</strong> <span id="patient-age"></span></p>
+        </div>
+
+        <div class="tab-nav">
+            <button class="tab-btn active" data-tab="outpatient">门诊系统</button>
+            <button class="tab-btn" data-tab="lab">检验系统</button>
+            <button class="tab-btn" data-tab="imaging">影像学</button>
+            <button class="tab-btn" data-tab="inpatient">住院病历</button>
+        </div>
+
+        <div id="outpatient" class="tab-content active">
+            <h2>门诊记录</h2>
+            <div id="outpatient-content"></div>
+        </div>
+        <div id="lab" class="tab-content">
+            <h2>检验报告</h2>
+            <div id="lab-content"></div>
+        </div>
+        <div id="imaging" class="tab-content">
+            <h2>影像学检查</h2>
+            <div id="imaging-content"></div>
+        </div>
+        <div id="inpatient" class="tab-content">
+            <h2>住院病历</h2>
+            <div id="inpatient-content"></div>
+        </div>
+    </div>
+
+    <script src="patient_detail.js"></script>
+</body>
+</html>
